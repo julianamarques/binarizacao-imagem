@@ -49,6 +49,25 @@ def aplicar_filtro_gaussian_blur(imagem):
     return imagem_filtrada
 
 
+def aplicar_scharr_x(imagem):
+    imagem_com_scharr_x = cv2.Scharr(imagem, cv2.CV_64F, 1, 0)
+
+    return imagem_com_scharr_x
+
+
+def aplicar_scharr_y(imagem):
+    imagem_com_scharr_y = cv2.Scharr(imagem, cv2.CV_64F, 0, 1)
+
+    return imagem_com_scharr_y
+
+
+def aplicar_scharr_x_y(imagem):
+    imagem_com_scharr_x = cv2.Scharr(imagem, cv2.CV_64F, 1, 0)
+    imagem_com_scharr_y = cv2.Scharr(imagem, cv2.CV_64F, 0, 1)
+
+    return imagem_com_scharr_x + imagem_com_scharr_y
+
+
 def aplicar_sobel_x(imagem):
     imagem_com_sobel = cv2.Sobel(imagem, cv2.CV_64F, 1, 0, ksize=5)
 
@@ -65,7 +84,6 @@ def aplicar_laplacian(imagem):
     imagem_com_laplacian = cv2.Laplacian(imagem,cv2.CV_64F)
 
     return imagem_com_laplacian
-
 
 
 def aplicar_canny(imagem):
@@ -93,8 +111,11 @@ def main():
     #salvar_imagem(binarizar_imagem_adaptive_mean(obter_imagem()))
     #exibir_imagem(binarizar_imagem_adaptive_mean(obter_imagem()))
     #salvar_imagem(aplicar_filtro_median_blur(binarizar_imagem_adaptive_mean(obter_imagem())))
-    salvar_imagem(aplicar_sobel_x(obter_imagem()))
+    #salvar_imagem(aplicar_sobel_x(obter_imagem()))
     #salvar_imagem(aplicar_sobel_y(obter_imagem()))
+    #salvar_imagem(aplicar_scharr_x(obter_imagem()))
+    #salvar_imagem(aplicar_scharr_y(obter_imagem()))
+    salvar_imagem(aplicar_scharr_x_y(obter_imagem()))
     #salvar_imagem(aplicar_laplacian(obter_imagem()))
     #salvar_imagem(aplicar_canny(obter_imagem()))
     #salvar_imagem(aplicar_canny(aplicar_filtro_gaussian_blur(obter_imagem())))
@@ -107,6 +128,7 @@ def main():
     #salvar_imagem(binarizar_imagem(aplicar_sobel_x(obter_imagem())))
     #salvar_imagem(binarizar_imagem(aplicar_sobel_y(obter_imagem())))
     #salvar_imagem(binarizar_imagem_adaptive_mean(obter_imagem()))
+
 
 if __name__ == '__main__':
     main()
