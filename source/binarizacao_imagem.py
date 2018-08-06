@@ -26,7 +26,7 @@ def binarizar_imagem(imagem):
 
 
 def binarizar_imagem_adaptive_mean(imagem):
-    imagem_binarizada = cv2.adaptiveThreshold(imagem, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 11, 2)
+    imagem_binarizada = cv2.adaptiveThreshold(imagem, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 25, 1)
 
     return imagem_binarizada
 
